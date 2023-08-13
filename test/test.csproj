@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<LangVersion>8</LangVersion>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="../cs/Array.cs" />
+		<Compile Include="../cs/Char.cs" />
+		<Compile Include="../cs/DateTime.cs" />
+		<Compile Include="../cs/DirectoryInfo.cs" />
+		<Compile Include="../cs/FileInfo.cs" />
+		<Compile Include="../cs/HtmlHelper.cs" />
+		<Compile Include="../cs/IComparable.cs" />
+		<Compile Include="../cs/Object.cs" />
+		<Compile Include="../cs/Regex.cs" />
+		<Compile Include="../cs/String.cs" />
+		<Compile Include="../cs/TimeZoneInfo.cs" />
+		<Compile Include="../Balzac.cs" />
+	</ItemGroup>
+
+</Project>
