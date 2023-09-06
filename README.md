@@ -1,23 +1,18 @@
 # Balzac.cs
 
-> A C# library that enhance your favorite language
+> A C# library that enhances your favorite language
 
-**Test project**
+
+## Tests
 
 [![Open in GitHub Codespaces (web-based version of Visual Studio Code)](https://github.com/codespaces/badge.svg)](https://codespaces.new/visicode/Balzac.cs)
-
-**Installation**
-
-```bash
-npm install --save https://github.com/visicode/Balzac.cs.git
-```
 
 
 ## What does it do?
 
 * Adds missing functionalities to C# language.
 * Brings expected behavior to some incomplete features.
-* Gently extends C# build-in objects.
+* Gently extends C# built-in objects.
 
 
 ## What is it not?
@@ -26,14 +21,12 @@ npm install --save https://github.com/visicode/Balzac.cs.git
 * A C# framework.
 
 
-## Language support
+## Installation and usage
 
-* C# 8.0+
+1. Download and extract the package to your project folder:\
+https://github.com/visicode/Balzac.cs/archive/refs/heads/main.zip
 
-
-## Usage
-
-To use Balzac.cs, import the Balzac.cs namespace in your project with the `using` directive.
+2. Import the Balzac.cs namespace into your C# files:
 
 ```c#
 using Balzac.cs;
@@ -42,13 +35,12 @@ using Balzac.cs;
 
 ## Documentation
 
-Yes, we do extend some C# build-in objects!\
+Yes, we do extend some C# built-in objects!\
 And we'd love our enhancements to be added in C# language, so we'd remove them from the library.
 
 * [C# interfaces enhancements](#doci)
 * [C# structures enhancements](#docs)
 * [C# classes enhancements](#docc)
-* [C# new classes](#docnew)
 
 <a id="doci"></a>
 
@@ -107,7 +99,29 @@ char = char.ToLower(CultureInfo.CurrentCulture);
 short = char.ToNumericValue();
 ```
 
-**String structure enhancements**
+**DateTime structure enhancements**
+
+```c#
+/**
+ * Converts the value of a DateTime object to its SQL format representation.
+ */
+string = datetime.ToSqlString();
+```
+
+<a id="docc"></a>
+
+### C# classes enhancements
+
+**Enum class enhancements**
+
+```c#
+/**
+ * Returns the description associated to an enum value (the enum name if not existing).
+ */
+string = enum.Value.GetDescription();
+```
+
+**String class enhancements**
 
 ```c#
 /**
@@ -155,47 +169,7 @@ string = string.Truncate(max);
  *  lines:       The number of lines to return.
  */
 string = string.FirstLines(lines);
-
-/**
- * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
- *  replacement: The replacement string (empty string by default).</param>
- */
-string = string.StripSpecialChars(replacement);
-
-/**
- * Converts a string to its file name representation, with all invalid characters replaced with the specified replacement string.
- *  replacement: The replacement string ("_" by default).</param>
- */
-string = string.ToFileName(replacement);
-
-/**
- * Converts an HTML string to plain text, with all HTML tags removed.
- */
-string = string.ToPlainText();
-
-/**
- * Converts a string with all new lines replaced with HTML line breaks.
- */
-string = string.Nl2br();
-
-/**
- * Converts a string with all new lines replaced with HTML paragraphs.
- */
-string = string.Nl2p();
 ```
-
-**DateTime structure enhancements**
-
-```c#
-/**
- * Converts the value of a DateTime object to its SQL format representation.
- */
-string = datetime.ToSqlString();
-```
-
-<a id="docc"></a>
-
-### C# classes enhancements
 
 **Array class enhancements**
 
@@ -282,28 +256,58 @@ bool = fileinfo.TryDelete();
 string = timezoneinfo.ToShortName();
 ```
 
-<a id="docnew"></a>
-
-### C# new classes
-
-**HtmlHelper new class**
+**WebUtility class enhancements**
 
 ```c#
 /**
  * Encodes the specified binary string into base-64 digits.
- *  s:           The binary string to encode (a string in which each character in the string is treated as a byte of binary data).
+ *  string:      The binary string to encode (a string in which each character in the string is treated as a byte of binary data).
  *  options:     The encoding options (None by default).
  */
-string = HtmlHelper.BtoA(string, Base64FormattingOptions.InsertLineBreaks);
+string = WebUtility.BtoA(string, Base64FormattingOptions.InsertLineBreaks);
 
 /**
  * Decodes the specified string, which encodes data as base-64 digits, back to its decoded form.
- *  s:           The string containing base64-encoded data to decode.
+ *  string:      The string containing base64-encoded data to decode.
  */
-string = HtmlHelper.AtoB(string);
+string = WebUtility.AtoB(string);
+
+/**
+ * Replaces all special characters of a string (other than letters, numbers and separators) with the specified replacement string.
+ *  string:      The string containing the special characters to be replaced.
+ *  replacement: The replacement string (empty string by default).
+ */
+string = WebUtility.StripSpecialChars(string, replacement);
+
+/**
+ * Converts a string with all new lines replaced with HTML line breaks.
+ *  string:      The string containing the new lines to be replaced.
+ */
+string = WebUtility.Nl2br(string);
+
+/**
+ * Converts a string with all new lines replaced with HTML paragraphs.
+ *  string:      The string containing the new lines to be replaced.
+ */
+string = WebUtility.Nl2p(string);
+
+/**
+ * Converts a string to its file name representation, with all invalid characters replaced with the specified replacement string.
+ *  string:      The string containing the invalid characters to be replaced.
+ *  replacement: The replacement string ("_" by default).
+ */
+string = WebUtility.ToFileName(string, replacement);
+
+/**
+ * Converts an HTML string to plain text, with all HTML tags removed.
+ *  string:      The HTML string to be converted to plain text.
+ */
+string = WebUtility.ToPlainText(string);
 
 /**
  * Returns the specified password strength from PASSWORD_STRENGTH.EMPTY to PASSWORD_STRENGTH.STRONG.
+ *  password:    The string containing the password to rate.
+ *
  *  EMPTY:       Empty.
  *  SHORT:       Less than 8 characters.
  *  WEAK:        One or two of the PASSWORD_STRENGTH.GOOD criteria.
@@ -311,13 +315,18 @@ string = HtmlHelper.AtoB(string);
  *  GOOD:        At least 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special character.
  *  STRONG:      All PASSWORD_STRENGTH.GOOD criteria and greater than or equal to 12 characters.
  */
-HtmlHelper.GetPasswordStrength(string) >= HtmlHelper.PASSWORD_STRENGTH.GOOD;
+WebUtility.GetPasswordStrength(password) >= WebUtility.PASSWORD_STRENGTH.GOOD;
 ```
+
+
+## Support
+
+* C# 8.0+
 
 
 ## Known issues
 
-* Set `<httpRuntime fcnMode="Single" />` in web.config to disable immediate IIS recycling on folders and files modification.
+* Set `<httpRuntime fcnMode="Single" />` in `web.config` file to disable immediate IIS recycling on folders and files modification.
 
 
 ## Acknowledgements

@@ -1,4 +1,4 @@
-/*! cs/Regex.cs | MIT License | github.com/visicode/Balzac.cs */
+/*! ./cs/Regex.cs | MIT License | github.com/visicode/Balzac.cs */
 using System.Text.RegularExpressions;
 
 namespace Balzac.cs {

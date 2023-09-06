@@ -1,4 +1,4 @@
-/*! Balzac.cs v0.1.1 | MIT License | github.com/visicode/Balzac.cs */
+/*! Balzac.cs v0.1.4 | MIT License | github.com/visicode/Balzac.cs */
 using System.IO;
 using System.Runtime.CompilerServices;
 

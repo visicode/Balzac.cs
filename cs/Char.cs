@@ -1,8 +1,8 @@
-/*! cs/Char.cs | MIT License | github.com/visicode/Balzac.cs */
+/*! ./cs/Char.cs | MIT License | github.com/visicode/Balzac.cs */
 using System.Globalization;
 
 namespace Balzac.cs {
-	public static class _char {
+	public static class _Char {
 
 		/// <summary>Checks if a Unicode character is categorized as an uppercase letter.</summary>
 		/// <returns>true if the Unicode character is categorized as an uppercase letter, otherwise false.</returns>
@@ -20,14 +20,16 @@ namespace Balzac.cs {
 		/// <param name="culture">An object that supplies culture-specific casing rules (current culture by default).</param>
 		/// <returns>The value of a Unicode character converted to its uppercase equivalent.</returns>
 		public static char ToUpper(this char c, CultureInfo? culture = null) {
-			return char.ToUpper(c, culture ?? CultureInfo.CurrentCulture);
+			return char.ToUpper(c,
+				culture ?? CultureInfo.CurrentCulture);
 		}
 
 		/// <summary>Converts the value of a Unicode character to its lowercase equivalent.</summary>
 		/// <param name="culture">An object that supplies culture-specific casing rules (current culture by default).</param>
 		/// <returns>The value of a Unicode character converted to its lowercase equivalent.</returns>
 		public static char ToLower(this char c, CultureInfo? culture = null) {
-			return char.ToLower(c, culture ?? CultureInfo.CurrentCulture);
+			return char.ToLower(c,
+				culture ?? CultureInfo.CurrentCulture);
 		}
 
 		/// <summary>Converts a Unicode character to its numeric value.</summary>

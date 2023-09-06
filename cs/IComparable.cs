@@ -1,4 +1,4 @@
-/*! cs/IComparable.cs | MIT License | github.com/visicode/Balzac.cs */
+/*! ./cs/IComparable.cs | MIT License | github.com/visicode/Balzac.cs */
 using System;
 using System.Collections.Generic;
 

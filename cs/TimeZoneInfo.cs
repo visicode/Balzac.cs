@@ -1,4 +1,4 @@
-/*! cs/TimeZoneInfo.cs | MIT License | github.com/visicode/Balzac.cs */
+/*! ./cs/TimeZoneInfo.cs | MIT License | github.com/visicode/Balzac.cs */
 using System;
 
 namespace Balzac.cs {
@@ -6,8 +6,8 @@ namespace Balzac.cs {
 
 		/// <summary>Returns a time zone display name in short format.</summary>
 		/// <returns>The time zone display name in short format (without the UTC time offset).</returns>
-		public static string? ToShortName(this TimeZoneInfo timeZoneInfo) {
-			return timeZoneInfo?.DisplayName[(timeZoneInfo.DisplayName.IndexOf(") ", StringComparison.Ordinal) + 2)..];
+		public static string ToShortName(this TimeZoneInfo timeZoneInfo) {
+			return timeZoneInfo.DisplayName[(timeZoneInfo.DisplayName.IndexOf(") ", StringComparison.Ordinal) + 2)..];
 		}
 	}
 }

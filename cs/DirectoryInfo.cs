@@ -1,4 +1,4 @@
-/*! cs/DirectoryInfo.cs | MIT License | github.com/visicode/Balzac.cs */
+/*! ./cs/DirectoryInfo.cs | MIT License | github.com/visicode/Balzac.cs */
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -10,8 +10,7 @@ namespace Balzac.cs {
 		/// <returns>true if the directory is empty or not existing, otherwise false.</returns>
 		public static bool IsEmpty(this DirectoryInfo directoryInfo) {
 			try {
-				return directoryInfo == null
-					|| !directoryInfo.Exists
+				return !directoryInfo.Exists
 					|| !directoryInfo.EnumerateFileSystemInfos().Any();
 			}
 			catch {
@@ -23,7 +22,7 @@ namespace Balzac.cs {
 		/// <param name="recursive">true to delete subdirectories and all files (false by default).</param>
 		/// <returns>true if the directory has been deleted, otherwise false.</returns>
 		public static bool TryDelete(this DirectoryInfo directoryInfo, bool recursive = false) {
-			if (directoryInfo != null && directoryInfo.Exists)
+			if (directoryInfo.Exists)
 				try {
 					if (!recursive && !directoryInfo.IsEmpty())
 						return false; // faster than throwing an exception when not empty
