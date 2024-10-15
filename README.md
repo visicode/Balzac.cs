@@ -24,7 +24,7 @@
 ## Installation and usage
 
 1. Download and extract the package to your project folder:\
-https://github.com/visicode/Balzac.cs/archive/refs/heads/main.zip
+[https://github.com/visicode/Balzac.cs/archive/refs/heads/main.zip](https://github.com/visicode/Balzac.cs/archive/refs/heads/main.zip)
 
 2. Import the Balzac.cs namespace into your C# files:
 
